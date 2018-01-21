@@ -1,4 +1,3 @@
-//import 'bootstrap/dist/js/bootstrap';
 import angular from 'angular';
 import 'ng-infinite-scroll/build/ng-infinite-scroll.min';
 import 'angularjs-toaster/toaster.min';
