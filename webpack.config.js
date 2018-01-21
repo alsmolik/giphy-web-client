@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -13,9 +14,15 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
-            { test: /\.html$/, loader: "html-loader" },
-            { test: /\.css$/, loader: "style!css" }
+            {test: /\.html$/, loader: "html-loader"},
+            {test: /\.css$/, loader: "style-loader!css-loader"}
         ]
     },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+        })
+    ],
     devtool: "#inline-source-map"
 };

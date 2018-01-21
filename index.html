@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <title>Giphy Client</title>
     <script src="dist/bundle.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-<a ui-sref="home" ui-sref-active="active">Home</a>
-<ui-view></ui-view>
+<body ng-controller="SearchController as searchCtrl">
+<toaster-container></toaster-container>
+<div id="search-input-container">
+    <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Type something..." ng-model="searchCtrl.searchText"
+               ng-change="searchCtrl.search(searchCtrl.searchText.trim())"
+               ng-model-options="{debounce: 1000}"/>
+        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+    </div>
+</div>
+<div class="container text-center" infinite-scroll="searchCtrl.loadMore()"
+     infinite-scroll-disabled="searchCtrl.infiniteScrollDisabled">
+    <img class="search-results-item" ng-src="{{searchResult.images.fixed_height_still.url}}"
+         ng-repeat="searchResult in searchCtrl.searchResults" ng-click="searchCtrl.showGifDetails(searchResult)">
+</div>
 </body>
 </html>

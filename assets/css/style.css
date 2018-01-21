@@ -1,0 +1,19 @@
+@import url('../../node_modules/bootstrap/dist/css/bootstrap.css');
+@import url('../../node_modules/angularjs-toaster/toaster.min.css');
+
+#search-input-container {
+    margin: 30px;
+}
+
+.search-results-item {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.gif-details-img {
+    max-width: 100%;
+}
+
+.gif-details-table {
+    margin-top: 15px;
+}
